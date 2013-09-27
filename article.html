@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<yeetrack-url>http://www.yeetrack.com/?p=757</yeetrack-url>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+</head>
+<body>
+<h1>wordpress博客批量导入OSchina博客</h1>
+<p>Wordpress有同步文章到百度hi空间、新浪博客等的插件，没有同步到OSchina博客的插件，而OSChina也没有提供博客导入的功能。就简单用代码(java)实现了这功能，原理：首先wordpress在后台导出文章到xml文件中，然后解析该xml文件，读取出其中的文章，最后使用post请求，将文章发表到OSchina博客空间。  </p>
+<p>使用前提：  </p>
+<ul>
+<li>在wordpress后台导出文章xml文件，放到本项目根目录。</li>
+<li>本项目使用maven管理，安装maven，然后在项目根目录执行<code>mvn insgtall</code>，下载依赖的jar包。  </li>
+<li>在<code>UserInfo.java</code>这个文件中，设置自己的用户名和密码，注意要设置不是明文密码，而是明文密码的md5（40位小写），可在<a href="http://app.baidu.com/app/enter?appid=228509">这里获取</a>。</li>
+<li>比较懒，入口程序是个main方法，所以执行<code>mvn install</code>后，还需要运行<code>Main.java</code>中的main方法。运行后，日志会输出记录，可以查看成功和失败的结果。  </li>
+</ul>
+<p>我自己导入，日志输出如下：  </p>
+<pre><code>    com.intellij.rt.execution.application.AppMain            
+    com.yeetrack.blog2oschina.Main
+    14974
+    成功---&gt;apache cxf 测试webservice接口
+    成功发表1篇文章
+    Process finished with exit code 0
+</code></pre>
+<p>代码提交到github：<a href="https://github.com/yeetrack/Wordpress2OSchina">https://github.com/yeetrack/Wordpress2OSchina</a></p>
+</body>
+</html>
